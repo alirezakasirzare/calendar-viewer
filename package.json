@@ -1,6 +1,6 @@
 {
   "name": "calendar-viewer",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Calendar viewer for React applications.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -37,8 +37,6 @@
     "events"
   ],
   "dependencies": {
-    "clsx": "^2.1.1",
-    "date-fns": "^4.1.0",
-    "tailwind-merge": "^3.0.2"
+    "date-fns": "^4.1.0"
   }
 }

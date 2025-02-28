@@ -1,0 +1,55 @@
+.clv-box-list {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.clv-day-box {
+  border-width: 1px;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-color: oklch(0.928 0.006 264.531);
+  padding: 8px;
+  text-align: center;
+  font-size: 12px;
+  color: oklch(0.551 0.027 264.364);
+}
+
+.clv-day-box:nth-child(7n) {
+  border-right-width: 1px;
+}
+
+.clv-day-box:nth-last-child(-n + 7) {
+  border-bottom-width: 1px;
+}
+
+.clv-day-box-disabled {
+  color: oklch(55.1% 0.027 264.364 / 30%);
+}
+
+.clv-events {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.clv-event {
+  border-radius: 8px;
+  padding: 4px;
+  background-color: oklch(0.707 0.165 254.624);
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clv-day-name {
+  font-weight: 500;
+}
+
+.clv-day-name-today {
+  background-color: oklch(0.627 0.265 303.9);
+  color: #fff;
+  border-radius: 8px;
+  padding: 2px 4px;
+}

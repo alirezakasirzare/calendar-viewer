@@ -5,6 +5,7 @@ import { MonthStartGapDays } from "./components/MonthStartGapDays";
 import { MonthEndGapDays } from "./components/MonthEndGapDays";
 import { MonthDays } from "./components/MonthDays";
 import { CalendarEvent } from "./types/CalendarEvent";
+import "./style/index.css";
 
 type CalendarViewerProps = {
   control: CalendarControl;
@@ -14,7 +15,7 @@ type CalendarViewerProps = {
 export const CalendarViewer = ({ control, events }: CalendarViewerProps) => {
   return (
     <CalendarViewerProvider events={events} control={control}>
-      <div className="grid grid-cols-7">
+      <div className="clv-box-list">
         {/* heads */}
         <HeadDays />
 

@@ -1,4 +1,4 @@
-import { eachDayOfInterval, isSameDay } from "date-fns";
+import { eachDayOfInterval, isSameDay, isToday } from "date-fns";
 import { useCalendarViewerContext } from "../context/CalendarViewerContext";
 import { MonthDayUi } from "./MonthDayUi";
 import { formatMonthDay } from "../utils/formatMonthDay";
@@ -14,8 +14,14 @@ export const MonthDays = () => {
 
   return monthDays.map((monthDay, i) => (
     <MonthDayUi key={i}>
-      <span className="font-medium">{formatMonthDay(monthDay)}</span>
-      <div className="mt-1 flex flex-col gap-y-1">
+      <span
+        className={
+          "clv-day-name " + (isToday(monthDay) && "clv-day-name-today")
+        }
+      >
+        {formatMonthDay(monthDay)}
+      </span>
+      <div className="clv-events">
         <MonthDayEvents
           events={events.filter((event) => isSameDay(event.date, monthDay))}
         />

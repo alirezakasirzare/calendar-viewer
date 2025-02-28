@@ -8,7 +8,8 @@ const EventElement = ({ event }: EventElementProps) => {
   return (
     <div
       style={{ backgroundColor: event.bgColor, color: event.textColor }}
-      className="p-1 rounded-md bg-gray-100 text-gray-600"
+      className="clv-event"
+      title={event.title}
     >
       {event.title}
     </div>
