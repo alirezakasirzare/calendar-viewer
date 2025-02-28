@@ -1,6 +1,5 @@
 import { createContext, useContext } from "react";
-import { CalendarControl } from "../types/CalendarControl";
-import { CalendarEvent } from "../types/CalendarEvent";
+import { CalendarControl, CalendarEvent } from "../types";
 
 type Context = {
   control: CalendarControl;

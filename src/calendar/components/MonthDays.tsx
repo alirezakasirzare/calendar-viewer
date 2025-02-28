@@ -1,17 +1,24 @@
-import { eachDayOfInterval, isSameDay, isToday } from "date-fns";
 import { useCalendarViewerContext } from "../context/CalendarViewerContext";
 import { MonthDayUi } from "./MonthDayUi";
-import { formatMonthDay } from "../utils/formatMonthDay";
 import { MonthDayEvents } from "./MonthDayEvents";
+import { formatMonthDay } from "../utils/formatMonthDay";
+import {
+  getFnEachDayOfInterval,
+  getFnIsSameDay,
+  getFnIsToday,
+} from "../utils/dynamicDate";
 
 export const MonthDays = () => {
-  const {
-    control: { endDate, startDate },
-    events,
-  } = useCalendarViewerContext();
+  const { control, events } = useCalendarViewerContext();
 
-  const monthDays = eachDayOfInterval({ start: startDate, end: endDate });
+  const eachDayOfInterval = getFnEachDayOfInterval(control.type);
+  const monthDays = eachDayOfInterval({
+    start: control.startDate,
+    end: control.endDate,
+  });
 
+  const isToday = getFnIsToday(control.type);
+  const isSameDay = getFnIsSameDay(control.type);
   return monthDays.map((monthDay, i) => (
     <MonthDayUi key={i}>
       <span
@@ -19,7 +26,7 @@ export const MonthDays = () => {
           "clv-day-name " + (isToday(monthDay) && "clv-day-name-today")
         }
       >
-        {formatMonthDay(monthDay)}
+        {formatMonthDay(control.type, monthDay)}
       </span>
       <div className="clv-events">
         <MonthDayEvents

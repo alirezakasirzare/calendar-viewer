@@ -5,7 +5,7 @@
 
 .clv-day-box {
   border-width: 1px;
-  border-right-width: 0;
+  border-inline-end-width: 0;
   border-bottom-width: 0;
   border-color: oklch(0.928 0.006 264.531);
   padding: 8px;
@@ -15,7 +15,7 @@
 }
 
 .clv-day-box:nth-child(7n) {
-  border-right-width: 1px;
+  border-inline-end-width: 1px;
 }
 
 .clv-day-box:nth-last-child(-n + 7) {

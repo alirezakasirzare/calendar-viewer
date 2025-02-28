@@ -1,6 +1,8 @@
-import { formatDate } from "date-fns";
+import { getFnFormatDate } from "./dynamicDate";
+import { CalendarType } from "../types";
 
-export const formatMonthDay = (date: Date) => {
+export const formatMonthDay = (type: CalendarType, date: Date) => {
+  const formatDate = getFnFormatDate(type);
   const formated = formatDate(date, "d");
 
   if (formated === "1") return formatDate(date, "d MMM");

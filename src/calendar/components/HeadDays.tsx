@@ -1,7 +1,13 @@
+import { useCalendarViewerContext } from "../context/CalendarViewerContext";
 import { MonthDayUi } from "./MonthDayUi";
 
-export const HeadDays = () => {
-  const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+const jalDays = ["شنبه", "یک ش", "دو ش", "سه ش", "چهار ش", "پنج ش", "جمعه"];
 
-  return days.map((day) => <MonthDayUi key={day}>{day}</MonthDayUi>);
+export const HeadDays = () => {
+  const { control } = useCalendarViewerContext();
+
+  const headDays = control.type === "gregorian" ? days : jalDays;
+
+  return headDays.map((day) => <MonthDayUi key={day}>{day}</MonthDayUi>);
 };
