@@ -1,6 +1,6 @@
 {
   "name": "calendar-viewer",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Calendar viewer for React applications.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
