@@ -16,7 +16,7 @@ npm install calendar-viewer
 
 To use Calendar Viewer in your React application, follow these steps:
 
-Import the useNotification hook and necessary styles in your component:
+Import the useCalendarViewer hook and CalendarViewer in your component:
 
 ```jsx
 import { CalendarViewer, useCalendarViewer } from "calendar-viewer";
@@ -25,7 +25,7 @@ import { CalendarViewer, useCalendarViewer } from "calendar-viewer";
 And just use it:
 
 ```jsx
-const Page = () => {
+const App = () => {
   const control = useCalendarViewer({ type: "jalali" });
 
   const events = [
@@ -44,17 +44,15 @@ const Page = () => {
 - "gregorian"
 - "jalali"
 
-Use NotificationComponent in your JSX to display notifications:
-
 ## useCalendarViewer return type
 
 ```jsx
 const control = useCalendarViewer({ type: "jalali" });
-// control.startDate => for filter your data based on current date
-// control.endDate => for filter your data based on current date
-// control.next => go to next month
-// control.prev => go to previous month
-// control.type => get current type ( "gregorian" | "jalali" )
+// control.startDate
+// control.endDate
+// control.next
+// control.prev
+// control.type
 ```
 
 This hook returns an object with this properties and use can use it when you need
@@ -73,7 +71,7 @@ Here's a example of how to use Calendar Viewer with navs:
 import { CalendarViewer, useCalendarViewer } from "calendar-viewer";
 import { formatDate } from "date-fns";
 
-export default function Page() {
+export const App = () => {
   const control = useCalendarViewer({ type: "gregorian" });
 
   const events = [
@@ -93,6 +91,7 @@ export default function Page() {
 
   return (
     <div className="p-10">
+      {/* head */}
       <div className="flex gap-x-2 mb-2">
         <div>{formatDate(control.startDate, "MMMM yyyy")}</div>
         <span className="flex-1"></span>
@@ -109,10 +108,11 @@ export default function Page() {
           next
         </button>
       </div>
+      {/* calendar */}
       <CalendarViewer control={control} events={events} />
     </div>
   );
-}
+};
 ```
 
 ![Example](https://raw.githubusercontent.com/alirezakasirzare/calendar-viewer/refs/heads/main/src/assets/example2.png)
