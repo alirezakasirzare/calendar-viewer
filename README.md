@@ -4,6 +4,8 @@ Calendar Viewer is a simple and customizable calendar component for React applic
 
 ![Example](https://raw.githubusercontent.com/alirezakasirzare/calendar-viewer/refs/heads/main/src/assets/example1.png)
 
+### ✨ [Demo](https://calendar-viewer-example.vercel.app/)
+
 ## Installation
 
 You can install Calendar Viewer via npm:
