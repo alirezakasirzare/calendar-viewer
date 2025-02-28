@@ -1,0 +1,40 @@
+{
+  "name": "calendar-viewer",
+  "version": "0.0.1",
+  "description": "Calendar viewer for React applications.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "rollup": "rollup -c --bundleConfigAsCjs"
+  },
+  "author": "Alireza Kasirzare",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.3.3",
+    "react": "^19.0.0",
+    "rollup": "^4.18.1",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alirezakasirzare/calendar-viewer.git"
+  },
+  "keywords": [
+    "react",
+    "calendar-viewer",
+    "calendar",
+    "schedule",
+    "react-component",
+    "events"
+  ],
+  "dependencies": {}
+}
