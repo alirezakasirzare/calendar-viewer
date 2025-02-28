@@ -1,12 +1,13 @@
 {
   "name": "calendar-viewer",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "Calendar viewer for React applications.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "rollup": "rollup -c --bundleConfigAsCjs"
+    "rollup": "rollup -c --bundleConfigAsCjs",
+    "prepublishOnly": "rm -rf ./dist && npm run rollup"
   },
   "author": "Alireza Kasirzare",
   "license": "MIT",
@@ -37,6 +38,7 @@
     "events"
   ],
   "dependencies": {
-    "date-fns": "^4.1.0"
+    "date-fns": "^4.1.0",
+    "date-fns-jalali": "^4.1.0-0"
   }
 }

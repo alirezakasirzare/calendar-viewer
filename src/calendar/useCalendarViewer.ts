@@ -1,5 +1,10 @@
+import { useState } from "react";
 import { CalendarControl, CalendarType } from "./types";
-import { getFnEndOfMonth, getFnStartOfMonth } from "./utils/dynamicDate";
+import {
+  getFnAddMonths,
+  getFnEndOfMonth,
+  getFnStartOfMonth,
+} from "./utils/dynamicDate";
 
 type CalendarViewerHookOptions = {
   type?: CalendarType;
@@ -9,14 +14,31 @@ export const useCalendarViewer = ({
   type = "gregorian",
 }: CalendarViewerHookOptions = {}): CalendarControl => {
   const startOfMonth = getFnStartOfMonth(type);
-  const startDate = startOfMonth(new Date());
-
   const endOfMonth = getFnEndOfMonth(type);
-  const endDate = endOfMonth(new Date());
+  const addMonths = getFnAddMonths(type);
+  const [date, setDate] = useState({
+    start: startOfMonth(new Date()),
+    end: endOfMonth(new Date()),
+  });
+
+  const handleNext = () => {
+    setDate((prev) => ({
+      start: startOfMonth(addMonths(prev.start, 1)),
+      end: endOfMonth(addMonths(prev.end, 1)),
+    }));
+  };
+  const handlePrev = () => {
+    setDate((prev) => ({
+      start: startOfMonth(addMonths(prev.start, -1)),
+      end: endOfMonth(addMonths(prev.end, -1)),
+    }));
+  };
 
   return {
-    startDate,
-    endDate,
+    startDate: date.start,
+    endDate: date.end,
     type,
+    prev: handlePrev,
+    next: handleNext,
   };
 };

@@ -11,4 +11,6 @@ export type CalendarControl = {
   startDate: Date;
   endDate: Date;
   type: CalendarType;
+  next: () => void;
+  prev: () => void;
 };

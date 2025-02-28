@@ -8,6 +8,7 @@ import {
   isSameDay,
   isToday,
   formatDate,
+  addMonths,
 } from "date-fns";
 import {
   addDays as addDaysJal,
@@ -18,6 +19,7 @@ import {
   isSameDay as isSameDayJal,
   isToday as isTodayJal,
   formatDate as formatDateJal,
+  addMonths as addMonthsJal,
 } from "date-fns-jalali";
 
 export const getFnAddDays = (type: CalendarType) => {
@@ -50,4 +52,8 @@ export const getFnIsToday = (type: CalendarType) => {
 
 export const getFnFormatDate = (type: CalendarType) => {
   return type === "jalali" ? formatDateJal : formatDate;
+};
+
+export const getFnAddMonths = (type: CalendarType) => {
+  return type === "jalali" ? addMonthsJal : addMonths;
 };
